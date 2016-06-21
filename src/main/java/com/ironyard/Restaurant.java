@@ -24,12 +24,15 @@ public class Restaurant {
     int rating;
 
     @Column(nullable = false)
-    String commment;
+    String comment;
 
-    public Restaurant(String name, String location, int rating, String commment) {
+    public Restaurant(String name, String location, int rating, String comment) {
         this.name = name;
         this.location = location;
         this.rating = rating;
-        this.commment = commment;
+        this.comment = comment;
+    }
+
+    public Restaurant() {
     }
 }

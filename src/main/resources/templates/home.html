@@ -5,6 +5,9 @@
     <title>Home</title>
 </head>
 <body>
+<form action="/logout" method="post" style="float: right">
+    <button type="submit">Logout</button>
+</form>
 
 <form action="/create-restaurant" method="post">
     <input type="text" name="name" placeholder="Name">
@@ -20,16 +23,14 @@
     <button type="submit">Submit Restaurant</button>
 </form>
 
-<form action="/logout" method="post" style="float: right">
-    <button type="submit">Logout</button>
-</form>
+
 
 {{#restaurants}}
 <b>{{name}}</b> - {{location}} - {{rating}}/5 - {{comment}}
 <a href="/edit?id={{id}}"><button style="display: inline-block" type="button">Edit</button></a>
 <form style="display: inline-block" action="/delete-restaurant" method="post">
     <input type="hidden" name="id" value="{{id}}"/>
-    <button type="submit">Delete Restaurant</button>
+    <button type="submit">Delete</button>
 </form><br>
 {{/restaurants}}
 
