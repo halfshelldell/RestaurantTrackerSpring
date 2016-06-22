@@ -55,8 +55,8 @@ public class RestaurantTrackerController {
     }
 
     @RequestMapping(path = "create-restaurant", method = RequestMethod.POST)
-    public String create(String name, String location, int rating, String comment) {
-        Restaurant r = new Restaurant(name, location, rating, comment);
+    public String create(int id, String name, String location, int rating, String comment) {
+        Restaurant r = new Restaurant(id, name, location, rating, comment);
         restaurants.save(r);
         return "redirect:/";
     }
@@ -64,6 +64,13 @@ public class RestaurantTrackerController {
     @RequestMapping(path = "delete-restaurant", method = RequestMethod.POST)
     public String delete(int id) {
         restaurants.delete(id);
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "edit-restaurant", method = RequestMethod.POST)
+    public String edit(int id, String name, String location, int rating, String comment) {
+        Restaurant r = new Restaurant(id, name, location, rating, comment);
+        restaurants.save(r);
         return "redirect:/";
     }
 }
